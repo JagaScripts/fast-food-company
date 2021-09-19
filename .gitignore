@@ -2,5 +2,4 @@ src/img/*
 .idea/
 TO_JAGA_FastFoodCompany.iml
 out/
-MySqlImport/
 src/es/jaga/fastfoodcompany/modelo/entidades/gestiondb/core/GestionSql.java
