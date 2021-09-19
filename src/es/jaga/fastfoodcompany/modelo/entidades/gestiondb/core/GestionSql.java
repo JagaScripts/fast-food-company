@@ -14,10 +14,10 @@ import java.util.logging.Logger;
  */
 public class GestionSql {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String SERVER = "jdbc:mysql://db4free.net:3306/";//"jdbc:mysql://localhost:3306/";
-    private static final String DATABASE = "fastfoodcompany";
-    private static final String USERNAME = "joseagalcan";//"root";
-    private static final String PASSWORD = "Ly23167733";
+    private static final String SERVER = "jdbc:mysql://sql309.main-hosting.eu:3306/";//"jdbc:mysql://localhost:3306/";
+    private static final String DATABASE = "u110269477_fastfoodcompan";
+    private static final String USERNAME = "u110269477_joseagalcan";//"root";
+    private static final String PASSWORD = "0Fastfoodcompany";
     private static Connection connection = null;
     
     /**
