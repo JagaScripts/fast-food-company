@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `fastfoodcompany` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `fastfoodcompany`;
+CREATE DATABASE  IF NOT EXISTS `u110269477_fastfoodcompan` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `u110269477_fastfoodcompan`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
 -- Host: localhost    Database: fastfoodcompany
