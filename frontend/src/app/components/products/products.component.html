@@ -1,0 +1,119 @@
+<div class="products-container">
+  <div class="products-header">
+    <h1>Gestión de Productos</h1>
+    <button class="btn-primary" (click)="showAddForm = !showAddForm">
+      <span class="icon">➕</span>
+      {{ showAddForm ? 'Cancelar' : 'Agregar Producto' }}
+    </button>
+  </div>
+
+  <!-- Formulario de búsqueda -->
+  <div class="search-section">
+    <div class="search-box">
+      <input 
+        type="text" 
+        placeholder="Buscar productos..." 
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        class="search-input"
+      >
+      <span class="search-icon">🔍</span>
+    </div>
+  </div>
+
+  <!-- Formulario de agregar producto -->
+  <div class="add-form" *ngIf="showAddForm">
+    <div class="form-card">
+      <h3>Nuevo Producto</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="productName">Nombre</label>
+          <input 
+            type="text" 
+            id="productName"
+            [(ngModel)]="newProduct.name"
+            placeholder="Nombre del producto"
+            class="form-input"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="productPrice">Precio (€)</label>
+          <input 
+            type="number" 
+            id="productPrice"
+            [(ngModel)]="newProduct.price"
+            step="0.01"
+            min="0"
+            placeholder="0.00"
+            class="form-input"
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="productImage">Imagen (URL)</label>
+          <input 
+            type="text" 
+            id="productImage"
+            [(ngModel)]="newProduct.image"
+            placeholder="URL de la imagen"
+            class="form-input"
+          >
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button class="btn-secondary" (click)="showAddForm = false">Cancelar</button>
+        <button class="btn-success" (click)="addProduct()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de productos -->
+  <div class="products-table-container">
+    <div class="table-card">
+      <div class="table-header">
+        <h3>Lista de Productos ({{ filteredProducts.length }})</h3>
+      </div>
+      
+      <div class="table-responsive">
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of filteredProducts">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>€{{ product.price }}</td>
+              <td>
+                <span *ngIf="product.image" class="image-preview">
+                  📷 {{ product.image }}
+                </span>
+                <span *ngIf="!product.image" class="no-image">
+                  Sin imagen
+                </span>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-edit" title="Editar">
+                    <span class="icon">✏️</span>
+                  </button>
+                  <button class="btn-delete" (click)="deleteProduct(product.id)" title="Eliminar">
+                    <span class="icon">🗑️</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
