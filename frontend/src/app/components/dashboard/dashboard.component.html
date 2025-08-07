@@ -1,0 +1,109 @@
+<div class="dashboard">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1 class="text-center mb-4">Dashboard</h1>
+      <p class="text-center text-muted">Resumen general del sistema de gestión</p>
+    </div>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row g-4 mb-5">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <span class="display-6 me-3">💰</span>
+            <h3 class="card-title h5 mb-0">Ventas Totales</h3>
+          </div>
+          <p class="card-text display-6 mb-0">{{ stats.totalSales }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <span class="display-6 me-3">🍕</span>
+            <h3 class="card-title h5 mb-0">Productos</h3>
+          </div>
+          <p class="card-text display-6 mb-0">{{ stats.totalProducts }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <span class="display-6 me-3">👥</span>
+            <h3 class="card-title h5 mb-0">Clientes</h3>
+          </div>
+          <p class="card-text display-6 mb-0">{{ stats.totalClients }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <span class="display-6 me-3">📂</span>
+            <h3 class="card-title h5 mb-0">Categorías</h3>
+          </div>
+          <p class="card-text display-6 mb-0">{{ stats.totalCategories }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Sales & Top Products -->
+  <div class="row g-4">
+    <!-- Recent Sales -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0">Ventas Recientes</h2>
+            <a routerLink="/sales" class="btn btn-sm btn-outline-light">Ver todas</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item" *ngFor="let sale of recentSales">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="mb-1">{{ sale.client }}</h6>
+                  <small class="text-muted">{{ sale.date | date:'short' }}</small>
+                </div>
+                <span class="badge bg-success rounded-pill">€{{ sale.total }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Products -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="h5 mb-0">Productos Más Vendidos</h2>
+            <a routerLink="/products" class="btn btn-sm btn-outline-light">Ver todos</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item" *ngFor="let product of topProducts">
+              <div class="d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">{{ product.name }}</h6>
+                <span class="badge bg-primary rounded-pill">{{ product.sales }} ventas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
