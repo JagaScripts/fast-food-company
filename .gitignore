@@ -1,4 +1,5 @@
 src/img/*
 out/
 .idea/
-!out/artifacts/TO_JAGA_FastFoodCompany_jar/*
+!out/artifacts/TO_JAGA_FastFoodCompany_jar/*.cursor-rules.md
+.cursor-config.json
